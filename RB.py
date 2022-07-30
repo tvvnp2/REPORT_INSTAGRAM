@@ -4,28 +4,31 @@ import time
 rs = requests.session()
 colorama.init()
 B=colorama.Fore
+
 nu,n = 0,0
 print(B.RED+F'''
 
-    ____  __________  ____  ____  ______
-   / __ \/ ____/ __ \/ __ \/ __ \/_  __/
-  / /_/ / __/ / /_/ / / / / /_/ / / /   
- / _, _/ /___/ ____/ /_/ / _, _/ / /    
-/_/ |_/_____/_/    \____/_/ 
+██████╗ ███████╗██████╗  ██████╗ ██████╗ ████████╗
+██╔══██╗██╔════╝██╔══██╗██╔═══██╗██╔══██╗╚══██╔══╝
+██████╔╝█████╗  ██████╔╝██║   ██║██████╔╝   ██║   
+██╔══██╗██╔══╝  ██╔═══╝ ██║   ██║██╔══██╗   ██║   
+██║  ██║███████╗██║     ╚██████╔╝██║  ██║   ██║   
+╚═╝  ╚═╝╚══════╝╚═╝      ╚═════╝ ╚═╝  ╚═╝   ╚═╝   
 
-    __________
-   /  _/ ____/
-   / // / __  
- _/ // /_/ /  
-/___/\____/   
-
+██╗ ██████╗ 
+██║██╔════╝ 
+██║██║  ███╗
+██║██║   ██║
+██║╚██████╔╝
+╚═╝ ╚═════╝ 
+{B.CYAN}            
 INSTAGRAM : FX_PY3
 TELEGRAM :FX_PY
 
 ''')
-username = input(f'[+] - YOUR USERNAME : ')
-password = input(f'[+] - YOUR PASSWORD : ')
-Target = input(f'[+] - TARGET USERNAME : ')
+username = input(f'{B.YELLOW}[{B.WHITE}+{B.YELLOW}]{B.WHITE} - YOUR USERNAME : {B.RED}')
+password = input(f'{B.YELLOW}[{B.WHITE}+{B.YELLOW}]{B.WHITE} - YOUR PASSWORD : {B.RED}')
+Target = input(f'{B.YELLOW}[{B.WHITE}+{B.YELLOW}]{B.WHITE} - TARGET USERNAME : {B.RED}')
 url = 'https://www.instagram.com/accounts/login/ajax/'
 headers = {
      'accept': '*/*',
@@ -56,17 +59,17 @@ r = rs.post(url, headers=headers, data=data)
 if  'authenticated":true' in r.text or 'userId' in r.text:
     rs.headers.update({'X-CSRFToken': r.cookies['csrftoken']})
     print(F'{B.GREEN}LOGIN : {B.WHITE}'+username)
-    id=input(f'[+] - TARGET ID : ')
-    print('''
-[1] - spam
-[2] - violence
-[3] - Impersonation
-[4] - Sexual activity
-[5] - harassment
-[6] - Self-harm
-[7] - Hate on
-    ''')
-    xx = int(input(f"[+] - Choose : "))
+    id=input(f'{B.YELLOW}[{B.WHITE}+{B.YELLOW}]{B.WHITE} - TARGET ID : {B.RED}')
+    print(f"""
+{B.YELLOW}[{B.WHITE}1{B.YELLOW}]{B.WHITE} -{B.YELLOW} spam
+{B.YELLOW}[{B.WHITE}2{B.YELLOW}]{B.WHITE} -{B.YELLOW} violence
+{B.YELLOW}[{B.WHITE}3{B.YELLOW}]{B.WHITE} -{B.YELLOW} Impersonation
+{B.YELLOW}[{B.WHITE}4{B.YELLOW}]{B.WHITE} -{B.YELLOW} Sexual activity
+{B.YELLOW}[{B.WHITE}5{B.YELLOW}]{B.WHITE} -{B.YELLOW} harassment
+{B.YELLOW}[{B.WHITE}6{B.YELLOW}]{B.WHITE} -{B.YELLOW} Self-harm
+{B.YELLOW}[{B.WHITE}7{B.YELLOW}]{B.WHITE} -{B.YELLOW} Hate on
+    """)
+    xx = int(input(f"{B.YELLOW}[{B.WHITE}+{B.YELLOW}]{B.WHITE} - Choose : {B.RED}"))
     if xx == 1 :
      q=1
     elif xx == 2 :
@@ -81,8 +84,8 @@ if  'authenticated":true' in r.text or 'userId' in r.text:
      q=2
     elif xx == 7 :
      q=6
-    P1= int(input(f'[+] - HOW MANY REPORT : '))
-    tu = int(input(f'[+] - SECONDS : '))
+    P1= int(input(f'{B.YELLOW}[{B.WHITE}+{B.YELLOW}]{B.WHITE} - HOW MANY REPORT : {B.RED}'))
+    tu = int(input(f'{B.YELLOW}[{B.WHITE}+{B.YELLOW}]{B.WHITE} - SECONDS : {B.RED}'))
     print('\n\n')
     print(B.CYAN+'='*5+'start'+'='*5)
     print('\n\n')
@@ -95,7 +98,7 @@ if  'authenticated":true' in r.text or 'userId' in r.text:
      else:
       n += 1
      time.sleep(tu)
-     print(f"\rDone={nu} | Error={n}",end="")
+     print(f"\r{B.GREEN}Done={nu} |{B.RED} Error={n}",end="")
       
 else :
   print('bad login X ')
