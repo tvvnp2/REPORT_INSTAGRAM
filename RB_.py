@@ -1,11 +1,8 @@
 import requests
-import colorama
 import time
 rs = requests.session()
-colorama.init()
-B=colorama.Fore
 nu,n = 0,0
-print(B.RED+F'''
+print('''
 
     ____  __________  ____  ____  ______
    / __ \/ ____/ __ \/ __ \/ __ \/_  __/
@@ -55,7 +52,7 @@ data = {
 r = rs.post(url, headers=headers, data=data)
 if  'authenticated":true' in r.text or 'userId' in r.text:
     rs.headers.update({'X-CSRFToken': r.cookies['csrftoken']})
-    print(F'{B.GREEN}LOGIN : {B.WHITE}'+username)
+    print(F'LOGIN : '+username)
     id=input(f'[+] - TARGET ID : ')
     print('''
 [1] - spam
@@ -84,7 +81,7 @@ if  'authenticated":true' in r.text or 'userId' in r.text:
     P1= int(input(f'[+] - HOW MANY REPORT : '))
     tu = int(input(f'[+] - SECONDS : '))
     print('\n\n')
-    print(B.CYAN+'='*5+'start'+'='*5)
+    print('='*5+'start'+'='*5)
     print('\n\n')
     for i_1 in range(P1):
      url_1=f'https://www.instagram.com/users/{id}/report/'
